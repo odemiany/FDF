@@ -1,9 +1,9 @@
 #ifndef FDF_H
 # define FDF_H
 # define DEFAULT_COLOR 255
-# define X_ROT 45
-# define Z_ROT 45
-# define Y_ROT 45
+# define X_ROT 0
+# define Z_ROT 0
+# define Y_ROT 0
 # include <unistd.h>
 # include <fcntl.h>
 # include <math.h>
@@ -40,4 +40,5 @@ void 			rotation_oz(double **matrix, size_t dimension);
 void			make_image(t_matrix *matrix_data, char *filename);
 void			create_window(char *filename, t_mlx *mlx_data);
 void			print_image(t_mlx *mlx_data, t_matrix *matrix_data);
+void			print_line(double *current, double *next, t_mlx *mlx);
 #endif
