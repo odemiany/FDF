@@ -26,16 +26,16 @@ void	create_window(char *filename, t_mlx *mlx_data)
 	mlx_data->win_ptr = mlx_new_window(mlx_data->mlx_ptr, 100, 100, filename);
 }
 
-void	print_image(t_mlx *mlx_data, t_matrix *matrix_data)
+void	print_image(t_mlx *mlx_data, t_matrix *m_data)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < matrix_data->columns * matrix_data->lines - 1)
+	while (i < (m_data->columns * m_data->lines) - 1)
 	{
-		print_line(matrix_data->matrix[i], matrix_data->matrix[i + 1], mlx_data);
-		if (i < matrix_data->columns * (matrix_data->lines - 1))
-			print_line(matrix_data->matrix[i], matrix_data->matrix[i + matrix_data->columns], mlx_data);
+		print_line(m_data->matrix[i], m_data->matrix[i + 1], mlx_data);
+		if (i < m_data->columns * (m_data->lines - 1))
+			print_line(m_data->matrix[i], m_data->matrix[i + m_data->columns], mlx_data);
 		i++;
 	}
 	//mlx_loop(mlx_data->mlx_ptr);
