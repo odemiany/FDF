@@ -53,4 +53,5 @@ void			create_window(char *filename, t_mlx *mlx_data);
 void			print_image(t_mlx *mlx_data, t_matrix *matrix_data);
 void			print_line(double *current, double *next, t_mlx *mlx);
 void			check_file(char *filename);
+int 			my_key_func(int keycode, void *param);
 #endif
