@@ -114,6 +114,8 @@ int		get_color(char *line, int j)
 		if (ft_isspace(*line))
 			return (DEFAULT_COLOR);
 	}
+	if (!*line)
+		return (DEFAULT_COLOR);
 	if (line[1] == '0' && line[2] == 'x')
 		return (hex_to_int(&line[3]));
 	else
