@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   make_image.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: odemiany <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/27 19:19:58 by odemiany          #+#    #+#             */
+/*   Updated: 2017/09/27 19:20:15 by odemiany         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	make_image(t_matrix *matrix_data, char *filename)
@@ -11,7 +23,7 @@ void	make_image(t_matrix *matrix_data, char *filename)
 void	create_window(char *filename, t_mlx *mlx_data)
 {
 	mlx_data->mlx_ptr = mlx_init();
-	mlx_data->win_ptr = mlx_new_window(mlx_data->mlx_ptr, 1000, 1000, filename);
+	mlx_data->win_ptr = mlx_new_window(mlx_data->mlx_ptr, 100, 100, filename);
 }
 
 void	print_image(t_mlx *mlx_data, t_matrix *matrix_data)
@@ -26,6 +38,7 @@ void	print_image(t_mlx *mlx_data, t_matrix *matrix_data)
 			print_line(matrix_data->matrix[i], matrix_data->matrix[i + matrix_data->columns], mlx_data);
 		i++;
 	}
+	//mlx_loop(mlx_data->mlx_ptr);
 }
 
 void	print_line(double *current, double *next, t_mlx *mlx)
@@ -60,4 +73,15 @@ void	print_line(double *current, double *next, t_mlx *mlx)
 		y1 = err2 < x_dif ? y1 + y_sign : y1;
 	}
 	mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,x2, y2, 0x00FFFFFF);
+	mlx_loop(mlx->mlx_ptr);
 }
+
+//mlx_key_hook(win, my_key_funct, &(win_data));
+//int 	my_key_funct(int keycode, void *param)
+//{
+//	ft_putstr("key event ");
+//	ft_putnbr(keycode);
+//	if (keycode == 53)
+//		mlx_destroy_window(((t_win_data *)param)->mlx_ptr, ((t_win_data *)param)->win_ptr);
+//	return (0);
+//}

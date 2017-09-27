@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: odemiany <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/09/27 19:03:52 by odemiany          #+#    #+#             */
+/*   Updated: 2017/09/27 19:03:55 by odemiany         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
 # define FDF_H
 # define DEFAULT_COLOR 255
@@ -12,7 +24,6 @@
 # include "mlx.h"
 # include "get_next_line.h"
 
-
 typedef struct	s_mlx
 {
 	void	*mlx_ptr;
@@ -22,23 +33,24 @@ typedef struct	s_matrix
 {
 	double	**matrix;
 	size_t	lines;
-	size_t 	columns;
+	size_t	columns;
 }				t_matrix;
 void			fdf(char *filename);
 void			create_matrix(t_matrix *matrix_data, char *filename);
 void			fill_matrix(t_matrix *matrix_data, char *filename);
-int 			ft_isspace(char c);
-size_t 			count_columns(char *line);
-int 			get_altitude(char *line, int j);
-int 			get_color(char *line, int j);
-int 			hex_to_int(char *line);
+int				ft_isspace(char c);
+size_t			count_columns(char *line);
+int				get_altitude(char *line, int j);
+int				get_color(char *line, int j);
+int				hex_to_int(char *line);
 void			print(t_matrix *matrix_data);
 void			rotate_matrix(t_matrix *matrix_data);
-void 			rotation_ox(double **matrix, size_t dimension);
-void 			rotation_oy(double **matrix, size_t dimension);
-void 			rotation_oz(double **matrix, size_t dimension);
+void			rotation_ox(double **matrix, size_t dimension);
+void			rotation_oy(double **matrix, size_t dimension);
+void			rotation_oz(double **matrix, size_t dimension);
 void			make_image(t_matrix *matrix_data, char *filename);
 void			create_window(char *filename, t_mlx *mlx_data);
 void			print_image(t_mlx *mlx_data, t_matrix *matrix_data);
 void			print_line(double *current, double *next, t_mlx *mlx);
+void			check_file(char *filename);
 #endif
