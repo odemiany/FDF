@@ -54,6 +54,20 @@ int		ft_isspace(char c)
 		return (0);
 }
 
+void	init_line_variables(t_line *line, double *current, double *next)
+{
+	line->x1 = (int)(current[0] * 20 + 500);
+	line->y1 = (int)(current[1] * 20 + 500);
+	line->x2 = (int)(next[0] * 20 + 500);
+	line->y2 = (int)(next[1] * 20 + 500);
+	line->deltaX = abs(line->x2 - line->x1);
+	line->deltaY = abs(line->y2 - line->y1);
+	line->signX = line->x1 < line->x2 ? 1 : -1;
+	line->signY = line->y1 < line->y2 ? 1 : -1;
+	line->error = line->deltaX - line->deltaY;
+	line->color = (int)(current[2]);
+	line->color2 = (int)(next[2]);
+}
 void 	print(t_matrix *matrix_data)
 {
 	size_t i;

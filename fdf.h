@@ -13,7 +13,7 @@
 #ifndef FDF_H
 # define FDF_H
 # define DEFAULT_COLOR 255
-# define X_ROT 0
+# define X_ROT 25
 # define Z_ROT 0
 # define Y_ROT 0
 # include <unistd.h>
@@ -21,7 +21,6 @@
 # include <math.h>
 # include "mlx.h"
 # include "libft.h"
-# include "mlx.h"
 # include "get_next_line.h"
 
 typedef struct	s_mlx
@@ -35,6 +34,21 @@ typedef struct	s_matrix
 	size_t	lines;
 	size_t	columns;
 }				t_matrix;
+typedef struct 	s_line
+{
+	int		x1;
+	int		y1;
+	int		x2;
+	int		y2;
+	int 	signX;
+	int 	signY;
+	int 	error;
+	int 	error2;
+	int 	deltaX;
+	int 	deltaY;
+	int 	color;
+	int 	color2;
+}				t_line;
 void			fdf(char *filename);
 void			create_matrix(t_matrix *matrix_data, char *filename);
 void			fill_matrix(t_matrix *matrix_data, char *filename);
@@ -54,4 +68,5 @@ void			print_image(t_mlx *mlx_data, t_matrix *matrix_data);
 void			print_line(double *current, double *next, t_mlx *mlx);
 void			check_file(char *filename);
 int 			my_key_func(int keycode, void *param);
+void			init_line_variables(t_line *line, double *current, double *next);
 #endif

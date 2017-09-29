@@ -33,5 +33,5 @@ void	fdf(char *filename)
 	fill_matrix(&matrix_data, filename);
 	rotate_matrix(&matrix_data);
 	make_image(&matrix_data, filename);
-	print(&matrix_data);
+	//print(&matrix_data);
 }
