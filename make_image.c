@@ -38,8 +38,9 @@ void	print_image(t_mlx *mlx_data, t_matrix *m_data)
 	lines = m_data->lines;
 	columns = m_data->columns;
 	while (i < lines * columns - 1)
-	{;
-		print_line(m_data->matrix[i], m_data->matrix[i + 1], mlx_data);
+	{
+		if (((i + 1) % columns) != 0)
+			print_line(m_data->matrix[i], m_data->matrix[i + 1], mlx_data);
 		if (i < columns * (lines - 1))
 			print_line(m_data->matrix[i], m_data->matrix[i + columns],mlx_data);
 		i++;
@@ -54,7 +55,7 @@ void	print_line(double *current, double *next, t_mlx *mlx)
 	init_line_variables(&line, current, next);
 	while (line.x1 != line.x2 || line.y1 != line.y2)
 	{
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, line.x1, line.y1, 0x00FFFFFF);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, line.x1, line.y1, line.color);
 		line.error2 = line.error * 2;
 		if (line.error2 > -(line.deltaY))
 		{

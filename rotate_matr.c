@@ -29,7 +29,7 @@ void	rotation_ox(double **matrix, size_t dimension)
 		while (i < dimension)
 		{
 			matrix[i][1] = matrix[i][1] * cos(X_ROT) + matrix[i][2] * sin(X_ROT);
-			matrix[i][2] = - matrix[i][1] * sin(X_ROT) + matrix[i][2] * cos(X_ROT);
+			matrix[i][2] = matrix[i][2] * cos(X_ROT) - matrix[i][1] * sin(X_ROT);
 			i++;
 		}
 	}
@@ -45,7 +45,7 @@ void	rotation_oy(double **matrix, size_t dimension)
 		while (i < dimension)
 		{
 			matrix[i][0] = matrix[i][0] * cos(Y_ROT) + matrix[i][2] * sin(Y_ROT);
-			matrix[i][2] = - matrix[i][0] * sin(Y_ROT) + matrix[i][2] * cos(Y_ROT);
+			matrix[i][2] = matrix[i][2] * cos(Y_ROT) - matrix[i][0] * sin(Y_ROT);
 			i++;
 		}
 	}

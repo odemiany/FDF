@@ -13,9 +13,9 @@
 #ifndef FDF_H
 # define FDF_H
 # define DEFAULT_COLOR 255
-# define X_ROT 25
-# define Z_ROT 0
-# define Y_ROT 0
+# define X_ROT 300 * (M_PI / 180)
+# define Y_ROT 0 * (M_PI / 180)
+# define Z_ROT 0 * (M_PI / 180)
 # include <unistd.h>
 # include <fcntl.h>
 # include <math.h>
