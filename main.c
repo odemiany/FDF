@@ -28,10 +28,9 @@ void	fdf(char *filename)
 {
 	t_matrix matrix_data;
 
-	//check_file(filename);
+	check_file(filename);
 	create_matrix(&matrix_data, filename);
 	fill_matrix(&matrix_data, filename);
 	rotate_matrix(&matrix_data);
 	make_image(&matrix_data, filename);
-	print(&matrix_data);
 }

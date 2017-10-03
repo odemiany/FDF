@@ -57,7 +57,6 @@ size_t			count_columns(char *line);
 int				get_altitude(char *line, int j);
 int				get_color(char *line, int j);
 int				hex_to_int(char *line);
-void			print(t_matrix *matrix_data);
 void			rotate_matrix(t_matrix *matrix_data);
 void			rotation_ox(double **matrix, size_t dimension);
 void			rotation_oy(double **matrix, size_t dimension);
@@ -69,4 +68,6 @@ void			print_line(double *current, double *next, t_mlx *mlx);
 void			check_file(char *filename);
 int 			my_key_func(int keycode, void *param);
 void			init_line_variables(t_line *line, double *current, double *next);
+void			exit_error(char *line);
+void			check_file(char *filename);
 #endif

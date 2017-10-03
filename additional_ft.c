@@ -69,23 +69,3 @@ void	init_line_variables(t_line *line, double *current, double *next)
 	line->color = (int)(current[3]);
 	line->color2 = (int)(next[3]);
 }
-
-void	print(t_matrix *matrix_data)
-{
-	size_t i;
-
-	i = 0;
-	while (i < matrix_data->columns * matrix_data->lines)
-	{
-		ft_putstr("x: ");
-		ft_putnbr((int)matrix_data->matrix[i][0]);
-		ft_putstr("\ny: ");
-		ft_putnbr((int)matrix_data->matrix[i][1]);
-		ft_putstr("\nz: ");
-		ft_putnbr((int)matrix_data->matrix[i][2]);
-		ft_putstr("\ncolor: ");
-		ft_putnbr((int)matrix_data->matrix[i][3]);
-		ft_putstr("\n----------------\n");
-		i++;
-	}
-}
