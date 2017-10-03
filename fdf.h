@@ -13,7 +13,7 @@
 #ifndef FDF_H
 # define FDF_H
 # define DEFAULT_COLOR 255
-# define X_ROT 300 * (M_PI / 180)
+# define X_ROT 0 * (M_PI / 180)
 # define Y_ROT 0 * (M_PI / 180)
 # define Z_ROT 0 * (M_PI / 180)
 # include <unistd.h>
@@ -34,20 +34,20 @@ typedef struct	s_matrix
 	size_t	lines;
 	size_t	columns;
 }				t_matrix;
-typedef struct 	s_line
+typedef struct	s_line
 {
-	int		x1;
-	int		y1;
-	int		x2;
-	int		y2;
-	int 	signX;
-	int 	signY;
-	int 	error;
-	int 	error2;
-	int 	deltaX;
-	int 	deltaY;
-	int 	color;
-	int 	color2;
+	int			x1;
+	int			y1;
+	int			x2;
+	int			y2;
+	int			sign_x;
+	int			sign_y;
+	int			error;
+	int			error2;
+	int			delta_x;
+	int			delta_y;
+	int			color;
+	int			color2;
 }				t_line;
 void			fdf(char *filename);
 void			create_matrix(t_matrix *matrix_data, char *filename);
@@ -66,8 +66,10 @@ void			create_window(char *filename, t_mlx *mlx_data);
 void			print_image(t_mlx *mlx_data, t_matrix *matrix_data);
 void			print_line(double *current, double *next, t_mlx *mlx);
 void			check_file(char *filename);
-int 			my_key_func(int keycode, void *param);
-void			init_line_variables(t_line *line, double *current, double *next);
+int				my_key_func(int keycode, void *param);
+void			init_line_variables(t_line *line, double *current,
+																double *next);
 void			exit_error(char *line);
 void			check_file(char *filename);
+int				check_six_chars(char *line);
 #endif

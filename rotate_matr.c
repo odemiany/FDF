@@ -28,8 +28,10 @@ void	rotation_ox(double **matrix, size_t dimension)
 		i = 0;
 		while (i < dimension)
 		{
-			matrix[i][1] = matrix[i][1] * cos(X_ROT) + matrix[i][2] * sin(X_ROT);
-			matrix[i][2] = matrix[i][2] * cos(X_ROT) - matrix[i][1] * sin(X_ROT);
+			matrix[i][1] = matrix[i][1] * cos(X_ROT) + matrix[i][2] *
+																	sin(X_ROT);
+			matrix[i][2] = matrix[i][2] * cos(X_ROT) - matrix[i][1] *
+																	sin(X_ROT);
 			i++;
 		}
 	}
@@ -44,14 +46,16 @@ void	rotation_oy(double **matrix, size_t dimension)
 		i = 0;
 		while (i < dimension)
 		{
-			matrix[i][0] = matrix[i][0] * cos(Y_ROT) + matrix[i][2] * sin(Y_ROT);
-			matrix[i][2] = matrix[i][2] * cos(Y_ROT) - matrix[i][0] * sin(Y_ROT);
+			matrix[i][0] = matrix[i][0] * cos(Y_ROT) + matrix[i][2] *
+																	sin(Y_ROT);
+			matrix[i][2] = matrix[i][2] * cos(Y_ROT) - matrix[i][0] *
+																	sin(Y_ROT);
 			i++;
 		}
 	}
 }
 
-void 	rotation_oz(double **matrix, size_t dimension)
+void	rotation_oz(double **matrix, size_t dimension)
 {
 	size_t i;
 
@@ -60,8 +64,10 @@ void 	rotation_oz(double **matrix, size_t dimension)
 		i = 0;
 		while (i < dimension)
 		{
-			matrix[i][0] = matrix[i][0] * cos(Z_ROT) - matrix[i][1] * sin(Z_ROT);
-			matrix[i][1] = matrix[i][0] * sin(Z_ROT) + matrix[i][1] * cos(Z_ROT);
+			matrix[i][0] = matrix[i][0] * cos(Z_ROT) - matrix[i][1] *
+																	sin(Z_ROT);
+			matrix[i][1] = matrix[i][0] * sin(Z_ROT) + matrix[i][1] *
+																	cos(Z_ROT);
 			i++;
 		}
 	}

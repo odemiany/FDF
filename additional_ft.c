@@ -19,31 +19,42 @@ int		hex_to_int(char *line)
 	int base;
 	int counter;
 
+	if (check_six_chars(line) == -1)
+		return (DEFAULT_COLOR);
 	res = 0;
 	base = 16 * 16 * 16 * 16 * 16;
 	counter = 6;
 	while (counter > 0)
 	{
-		if (*line == 'A' || *line == 'a')
-			mult = 10;
-		else if (*line == 'B' || *line == 'b')
-			mult = 11;
-		else if (*line == 'C' || *line == 'c')
-			mult = 12;
-		else if (*line == 'D' || *line == 'd')
-			mult = 13;
-		else if (*line == 'E' || *line == 'e')
-			mult = 14;
-		else if (*line == 'F' || *line == 'f')
-			mult = 15;
-		else
-			mult = *line - '0';
+		mult = *line - '0';
+		mult = (*line == 'A' || *line == 'a') ? 10 : mult;
+		mult = (*line == 'B' || *line == 'b') ? 11 : mult;
+		mult = (*line == 'C' || *line == 'c') ? 12 : mult;
+		mult = (*line == 'D' || *line == 'd') ? 13 : mult;
+		mult = (*line == 'E' || *line == 'e') ? 14 : mult;
+		mult = (*line == 'F' || *line == 'f') ? 15 : mult;
 		res = res + base * mult;
 		line++;
 		base /= 16;
 		counter--;
 	}
 	return (res);
+}
+
+int		check_six_chars(char *l)
+{
+	int		i;
+
+	i = 0;
+	while (i < 6)
+	{
+		if (l[i] && ((l[i] > 47 && l[i] < 58) || (l[i] > 64 && l[i] < 71) ||
+				(l[i] > 96 && l[i] < 103)))
+			i++;
+		else
+			return (-1);
+	}
+	return (0);
 }
 
 int		ft_isspace(char c)
@@ -57,15 +68,15 @@ int		ft_isspace(char c)
 
 void	init_line_variables(t_line *line, double *current, double *next)
 {
-	line->x1 = (int)(current[0] * 2 + 10);
-	line->y1 = (int)(current[1] * 2 + 10);
-	line->x2 = (int)(next[0] * 20 + 500);
-	line->y2 = (int)(next[1] * 20 + 500);
-	line->deltaX = abs(line->x2 - line->x1);
-	line->deltaY = abs(line->y2 - line->y1);
-	line->signX = line->x1 < line->x2 ? 1 : -1;
-	line->signY = line->y1 < line->y2 ? 1 : -1;
-	line->error = line->deltaX - line->deltaY;
+	line->x1 = (int)(current[0] * 20 + 100);
+	line->y1 = (int)(current[1] * 20 + 100);
+	line->x2 = (int)(next[0] * 20 + 100);
+	line->y2 = (int)(next[1] * 20 + 100);
+	line->delta_x = abs(line->x2 - line->x1);
+	line->delta_y = abs(line->y2 - line->y1);
+	line->sign_x = line->x1 < line->x2 ? 1 : -1;
+	line->sign_y = line->y1 < line->y2 ? 1 : -1;
+	line->error = line->delta_x - line->delta_y;
 	line->color = (int)(current[3]);
 	line->color2 = (int)(next[3]);
 }
