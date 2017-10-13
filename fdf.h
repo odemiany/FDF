@@ -77,4 +77,5 @@ int				check_six_chars(char *line);
 void			scale_matrix(t_matrix *matrix_data, double scale);
 void			zoom_event(t_mlx *ptr, int key);
 void			exit_event(t_mlx *ptr);
+void			move_event(t_mlx *ptr, int key);
 #endif

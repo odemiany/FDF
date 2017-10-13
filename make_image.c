@@ -86,5 +86,7 @@ int		my_key_func(int key, void *param)
 		exit_event(ptr);
 	else if (key == 24 || key == 27)
 		zoom_event(ptr, key);
+	else if (key > 122 && key < 127)
+		move_event(ptr, key);
 	return (0);
 }
