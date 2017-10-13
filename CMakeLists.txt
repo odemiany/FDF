@@ -3,7 +3,7 @@ project(fdf)
 
 set(CMAKE_C_STANDARD 90)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ")
-set(SOURCE_FILES main.c ./gnl/get_next_line.c create_fill_matrix.c make_image.c rotate_matr.c additional_ft.c check_file.c)
+set(SOURCE_FILES main.c ./gnl/get_next_line.c create_fill_matrix.c make_image.c rotate_scale_matr.c additional_ft.c check_file.c events.c)
 
 include_directories(inc libft/includes minilibx gnl)
 

@@ -83,7 +83,7 @@ void	fill_matrix(t_matrix *matrix_data, char *filename)
 	close(fd);
 }
 
-int		get_altitude(char *line, int j)
+int		get_altitude(char *line, size_t j)
 {
 	while (j > 0)
 	{
@@ -96,7 +96,7 @@ int		get_altitude(char *line, int j)
 	return (ft_atoi(line));
 }
 
-int		get_color(char *line, int j)
+int		get_color(char *line, size_t j)
 {
 	while (j > 0)
 	{

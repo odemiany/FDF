@@ -68,10 +68,10 @@ int		ft_isspace(char c)
 
 void	init_line_variables(t_line *line, double *current, double *next)
 {
-	line->x1 = (int)(current[0] * 20 + 100);
-	line->y1 = (int)(current[1] * 20 + 100);
-	line->x2 = (int)(next[0] * 20 + 100);
-	line->y2 = (int)(next[1] * 20 + 100);
+	line->x1 = (int)(current[0] * 20 + 300);
+	line->y1 = (int)(current[1] * 20 + 300);
+	line->x2 = (int)(next[0] * 20 + 300);
+	line->y2 = (int)(next[1] * 20 + 300);
 	line->delta_x = abs(line->x2 - line->x1);
 	line->delta_y = abs(line->y2 - line->y1);
 	line->sign_x = line->x1 < line->x2 ? 1 : -1;
